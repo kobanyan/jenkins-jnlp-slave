@@ -1,0 +1,5 @@
+---
+  jenkins_slave_user: jenkins
+  jenkins_slave_group: jenkins
+  jenkins_slave_name: "{{ ansible_hostname }}"
+  jenkins_slave_home: /var/lib/jenkins

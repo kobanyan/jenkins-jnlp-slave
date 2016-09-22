@@ -1,0 +1,3 @@
+---
+  jenkins_slave_root: /usr/share/jenkins
+  jenkins_slave_run: /var/run/jenkins

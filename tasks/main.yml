@@ -1,0 +1,32 @@
+---
+  - name: Check if Jenkins JNLP slave variables are defined
+    assert:
+      that:
+        - "jenkins_master is defined"
+        - "jenkins_slave_secret is defined"
+    tags:
+      - jenkins-slave
+  - name: Make Jenkins JNLP slave directories
+    become: yes
+    become_method: sudo
+    file:
+      path: "{{ item }}"
+      state: directory
+      owner: "{{ jenkins_slave_user }}"
+      group: "{{ jenkins_slave_group }}"
+    with_items:
+      - "{{ jenkins_slave_root }}/bin"
+    tags:
+      - jenkins-slave
+  - name: Template Jenkins JNLP slave files
+    become: yes
+    become_method: sudo
+    template:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+    with_items:
+      - { src: download-slave.sh, dest: "{{ jenkins_slave_root }}/bin", mode: 755 }
+      - { src: jenkins-slave.service, dest: /etc/systemd/system/jenkins-slave.service, mode: 755 }
+      - { src: jenkins-slave.default, dest: /etc/default/jenkins-slave, mode: 644 }
+    notify: Start Jenkins JNLP slave
+    tags: jenkins-slave

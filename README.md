@@ -1,6 +1,8 @@
 Jenkins JNLP Slave
 =========
 
+[![Build Status](https://travis-ci.org/kobanyan/jenkins-jnlp-slave.svg?branch=master)](https://travis-ci.org/kobanyan/jenkins-jnlp-slave)
+
 Install [Jenkins JNLP slave](https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds#Distributedbuilds-Launchslaveagentheadlessly) on Ubuntu.
 
 Requirements

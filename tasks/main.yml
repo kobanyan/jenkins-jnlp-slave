@@ -15,6 +15,7 @@
       owner: "{{ jenkins_slave_user }}"
       group: "{{ jenkins_slave_group }}"
     with_items:
+      - "{{ jenkins_slave_home }}"
       - "{{ jenkins_slave_root }}/bin"
     tags:
       - jenkins-slave

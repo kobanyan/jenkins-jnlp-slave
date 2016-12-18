@@ -14,9 +14,6 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - xenial
-    - name: CentOS
-      versions:
-        - 7.2
 
   galaxy_tags:
     - development

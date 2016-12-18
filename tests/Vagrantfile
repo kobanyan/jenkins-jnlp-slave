@@ -4,12 +4,13 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "boxcutter/ubuntu1604"
   config.vm.provider "virtualbox"
+  config.vm.provision :shell, path: "bootstrap.sh"
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "local-test.yml"
     ansible.host_vars = {
       "default" => {
-        "jenkins_master" => "http://192.168.99.100:32769",
-        "jenkins_slave_secret" => "e1fdbd17d08f8a7bcfc739d39f350cf324ddc730176b0fde319f5d680f5242c5",
+        "jenkins_master" => ENV["jenkins_master"],
+        "jenkins_slave_secret" => ENV["jenkins_slave_secret"],
         "jenkins_slave_user" => "vagrant",
         "jenkins_slave_group" => "vagrant"
       }

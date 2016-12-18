@@ -3,12 +3,18 @@ Jenkins JNLP Slave
 
 [![Build Status](https://travis-ci.org/kobanyan/jenkins-jnlp-slave.svg?branch=master)](https://travis-ci.org/kobanyan/jenkins-jnlp-slave)
 
-Install [Jenkins JNLP slave](https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds#Distributedbuilds-Launchslaveagentheadlessly) on Ubuntu.
+Install [Jenkins JNLP slave](https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds#Distributedbuilds-Launchslaveagentheadlessly) on Linux.
 
 Requirements
 ------------
 
-- Ubuntu >= 16.04
+- Ansible 2.1 or higher.
+- Linux with systemd.  
+  Tested:
+    - Ubuntu
+        - 16.04 (xenial)
+    - CentOS
+        - 7.2
 - Create user and install Java to run Jenkins on slave machine.
 - Create node on Jenkins master.
 

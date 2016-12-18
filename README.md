@@ -8,7 +8,8 @@ Install [Jenkins JNLP slave](https://wiki.jenkins-ci.org/display/JENKINS/Distrib
 Requirements
 ------------
 
-Create user and install Java to run Jenkins.
+- Ubuntu >= 16.04
+- Create user and install Java to run Jenkins on slave machine.
 
 Role Variables
 --------------

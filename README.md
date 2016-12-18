@@ -10,6 +10,7 @@ Requirements
 
 - Ubuntu >= 16.04
 - Create user and install Java to run Jenkins on slave machine.
+- Create node on Jenkins master.
 
 Role Variables
 --------------
@@ -18,7 +19,7 @@ Role Variables
   - `jenkins_master`  
   URL of Jenkins server to connect to.
   - `jenkins_slave_secret`  
-  Secret key to access Jenkins server.
+  Secret key to access Jenkins server as the node.
 - defaults
   - `jenkins_slave_user`  
   User to run Jenkins slave. Default value is `jenkins`.

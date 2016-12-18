@@ -26,7 +26,6 @@
       src: "{{ item.src }}"
       dest: "{{ item.dest }}"
     with_items:
-      - { src: download-slave.sh, dest: "{{ jenkins_slave_root }}/bin", mode: 755 }
       - { src: jenkins-slave.service, dest: /etc/systemd/system/jenkins-slave.service, mode: 755 }
       - { src: jenkins-slave.default, dest: /etc/default/jenkins-slave, mode: 644 }
     notify: Start Jenkins JNLP slave

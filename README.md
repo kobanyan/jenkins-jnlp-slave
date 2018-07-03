@@ -13,8 +13,9 @@ Requirements
   Tested:
     - Ubuntu
         - 16.04 (xenial)
+        - 18.04 (bionic)
     - CentOS
-        - 7.2
+        - 7
 - Create user and install Java to run Jenkins on slave machine.
 - Create node on Jenkins master.
 

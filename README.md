@@ -8,7 +8,7 @@ Install [Jenkins JNLP slave](https://wiki.jenkins-ci.org/display/JENKINS/Distrib
 Requirements
 ------------
 
-- Ansible 2.1 or higher.
+- Ansible 2.2 or higher.
 - Linux with systemd.  
   Tested:
     - Ubuntu

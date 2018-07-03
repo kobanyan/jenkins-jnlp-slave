@@ -5,7 +5,7 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox"
 
   config.vm.define "ubuntu1604" do |ubuntu1604|
-    ubuntu1604.vm.box = "boxcutter/ubuntu1604"
+    ubuntu1604.vm.box = "ubuntu/xenial64"
     ubuntu1604.vm.provision :shell, path: "bootstrap-apt.sh"
     ubuntu1604.vm.provision "ansible" do |ansible|
       ansible.playbook = "local-test.yml"
@@ -22,18 +22,36 @@ Vagrant.configure(2) do |config|
     end
   end
 
-  config.vm.define "centos72" do |centos72|
-    centos72.vm.box = "boxcutter/centos72"
-    centos72.vm.provision :shell, path: "bootstrap-yum.sh"
-    centos72.vm.provision "ansible" do |ansible|
+  config.vm.define "ubuntu1804" do |ubuntu1804|
+    ubuntu1804.vm.box = "ubuntu/bionic64"
+    ubuntu1804.vm.provision :shell, path: "bootstrap-apt.sh"
+    ubuntu1804.vm.provision "ansible" do |ansible|
       ansible.playbook = "local-test.yml"
       ansible.host_vars = {
-        "centos72" => {
+        "ubuntu1804" => {
           "jenkins_master" => ENV["jenkins_master"],
-          "jenkins_slave_secret" => ENV["centos72_secret"],
+          "jenkins_slave_secret" => ENV["ubuntu1804_secret"],
           "jenkins_slave_user" => "vagrant",
           "jenkins_slave_group" => "vagrant",
-          "jenkins_slave_name" => "centos72"
+          "jenkins_slave_name" => "ubuntu1804"
+        }
+      }
+      # ansible.verbose = "v"
+    end
+  end
+
+  config.vm.define "centos7" do |centos7|
+    centos7.vm.box = "centos/7"
+    centos7.vm.provision :shell, path: "bootstrap-yum.sh"
+    centos7.vm.provision "ansible" do |ansible|
+      ansible.playbook = "local-test.yml"
+      ansible.host_vars = {
+        "centos7" => {
+          "jenkins_master" => ENV["jenkins_master"],
+          "jenkins_slave_secret" => ENV["centos7_secret"],
+          "jenkins_slave_user" => "vagrant",
+          "jenkins_slave_group" => "vagrant",
+          "jenkins_slave_name" => "centos7"
         }
       }
       # ansible.verbose = "v"

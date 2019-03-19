@@ -36,6 +36,8 @@ Role Variables
   Node name of Jenkins slave. Default value is `{{ ansible_hostname }}`.
   - `jenkins_slave_home`  
   Root directory of Jenkins slave. Default value is `/var/lib/jenkins`.
+  - `jenkins_slave_java`
+  Java binary path. Default value is `/usr/bin/java`.
 
 Dependencies
 ------------

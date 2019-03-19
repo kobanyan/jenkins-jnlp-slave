@@ -8,7 +8,7 @@ EnvironmentFile=/etc/default/jenkins-slave
 ExecStartPre=/bin/mkdir -p ${JENKINS_RUN}
 ExecStartPre=/bin/chown -R {{ jenkins_slave_user }}:{{ jenkins_slave_group }} ${JENKINS_RUN}
 ExecStartPre=/usr/bin/wget -q -O ${JENKINS_RUN}/slave.jar ${JENKINS_URL}/jnlpJars/slave.jar
-ExecStart=/usr/bin/java -jar ${JENKINS_RUN}/slave.jar -jnlpUrl ${JENKINS_URL}/computer/${JENKINS_NODE_NAME}/slave-agent.jnlp -secret=${JENKINS_SECRET}
+ExecStart={{ jenkins_slave_java }} -jar ${JENKINS_RUN}/slave.jar -jnlpUrl ${JENKINS_URL}/computer/${JENKINS_NODE_NAME}/slave-agent.jnlp -secret=${JENKINS_SECRET}
 User={{ jenkins_slave_user }}
 PermissionsStartOnly=true
 # OS LIMITS SETUP

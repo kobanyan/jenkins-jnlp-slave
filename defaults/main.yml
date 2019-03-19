@@ -3,3 +3,4 @@
   jenkins_slave_group: jenkins
   jenkins_slave_name: "{{ ansible_hostname }}"
   jenkins_slave_home: /var/lib/jenkins
+  jenkins_slave_java: /usr/bin/java
